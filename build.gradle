@@ -1,0 +1,111 @@
+buildscript {
+    repositories {
+        //maven {
+        //  url 'https://oss.sonatype.org/content/repositories/snapshots/'
+        //}
+        mavenCentral()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:1.5.0'
+        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+        classpath('com.stanfy.spoon:spoon-gradle-plugin:1.0.3') {
+            // Workaround for https://github.com/stanfy/spoon-gradle-plugin/issues/33
+            exclude module: 'guava'
+        }
+        classpath 'com.google.guava:guava:17.0'
+        classpath 'me.tatarka:gradle-retrolambda:3.2.3'
+        classpath 'me.tatarka.retrolambda.projectlombok:lombok.ast:0.2.3.a2'
+    }
+
+    // Exclude the lombok version that the android plugin depends on.
+    configurations.classpath.exclude group: 'com.android.tools.external.lombok'
+}
+
+//// Manifest version information!
+//def versionMajor = 1
+//def versionMinor = 0
+//def versionPatch = 0
+//def versionBuild = 0 // bump for dogfood builds, public betas, etc.
+//
+//apply plugin: 'com.android.application'
+//apply plugin: 'com.neenbedankt.android-apt'
+//apply plugin: 'spoon'
+//
+//repositories {
+//    //maven {
+//    //  url 'https://oss.sonatype.org/content/repositories/snapshots/'
+//    //}
+//    mavenCentral()
+//}
+//
+//android {
+//    compileSdkVersion 23
+//    buildToolsVersion '23.0.2'
+//
+//    defaultConfig {
+//        minSdkVersion 15
+//        targetSdkVersion 23
+//
+//        versionCode versionMajor * 10000 + versionMinor * 1000 + versionPatch * 100 + versionBuild
+//        versionName "${versionMajor}.${versionMinor}.${versionPatch}"
+//    }
+//
+//    buildTypes {
+//        debug {
+//            applicationIdSuffix '.debug'
+//        }
+//    }
+//
+//    productFlavors {
+//        internal {
+//            applicationId 'com.jakewharton.u2020.internal'
+//        }
+//        production {
+//            applicationId 'com.jakewharton.u2020'
+//        }
+//    }
+//
+//    compileOptions {
+//        sourceCompatibility JavaVersion.VERSION_1_7
+//        targetCompatibility JavaVersion.VERSION_1_7
+//    }
+//
+//    packagingOptions {
+//        exclude 'LICENSE.txt'
+//    }
+//}
+//
+//configurations {
+//    debugCompile
+//}
+//
+//configurations.all {
+//    resolutionStrategy {
+//        force 'com.android.support:support-annotations:23.1.1'
+//    }
+//}
+//
+//dependencies {
+//    //------ Compile Dependencies ------
+//    compile "org.slf4j:slf4j-api:1.7.12"
+//
+//    //WireMock
+//    compile("com.github.tomakehurst:wiremock:2.0.8-beta") {
+//        //Allows us to use the Android version of Apache httpclient
+//        exclude group: 'org.apache.httpcomponents', module: 'httpclient'
+//
+//        //Resolves the Duplicate Class Exception
+//        //Error:Execution failed for task ':app:transformClassesWithJarMergingForDebugAndroidTest'.
+//        //       > com.android.build.api.transform.TransformException: java.util.zip.ZipException: duplicate entry: org/objectweb/asm/AnnotationVisitor.class
+//        exclude group: 'asm', module: 'asm'
+//
+//        //Fixes conflict with Android's version
+//        //Warning:Dependency org.json:json:20090211 is ignored for debugAndroidTest as it may be conflicting with the internal version provided by Android.
+//        //In case of problem, please repackage with jarjar to change the class packages
+//        exclude group: 'org.json', module: 'json'
+//    }
+//    compile 'org.apache.httpcomponents:httpclient-android:4.3.5+'
+//
+//    testCompile 'junit:junit:4.12'
+//}
