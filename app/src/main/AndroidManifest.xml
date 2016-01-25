@@ -3,6 +3,8 @@
     package="com.handstandsam.wiremock.android">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
 
     <application
         android:name=".WireMockAndroidApplication"
@@ -10,8 +12,11 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
+        <!--<activity-->
+        <!--android:name=".DashboardActivity"-->
+        <!--android:label="@string/app_name"></activity>-->
         <activity
-            android:name="com.handstandsam.wiremock.android.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,6 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <service
             android:name=".WireMockServerBackgroundService"
             android:exported="false" />

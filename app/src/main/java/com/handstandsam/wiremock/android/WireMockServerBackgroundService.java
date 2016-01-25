@@ -11,9 +11,8 @@ import javax.inject.Inject;
 
 public class WireMockServerBackgroundService extends Service {
 
-    @Inject
-    WireMockServer wireMockServer;
-
+//    @Inject
+//    WireMockServer wireMockServer;
 
     @Inject
     WireMockPreferences wireMockPreferences;
@@ -22,8 +21,8 @@ public class WireMockServerBackgroundService extends Service {
     public void onCreate() {
         super.onCreate();
         ((WireMockAndroidApplication) getApplication()).getWireMockServerComponent().inject(this);
-        Toast.makeText(this, "WireMock starting.", Toast.LENGTH_SHORT).show();
-        wireMockServer.start();
+//        Toast.makeText(this, "WireMock starting.", Toast.LENGTH_SHORT).show();
+//        wireMockServer.start();
     }
 
     @Override
@@ -36,6 +35,11 @@ public class WireMockServerBackgroundService extends Service {
     public void onDestroy() {
         super.onDestroy();
         Toast.makeText(this, "WireMock stopping.", Toast.LENGTH_SHORT).show();
-        wireMockServer.stop();
+        WireMockServer wireMockServer = WireMockAndroidApplication.wireMockServer;
+        if (wireMockServer != null) {
+            if (wireMockServer.isRunning()) {
+                wireMockServer.stop();
+            }
+        }
     }
 }

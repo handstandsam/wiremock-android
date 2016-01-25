@@ -5,7 +5,7 @@ import android.support.test.espresso.matcher.ViewMatchers;
 import android.support.test.runner.AndroidJUnit4;
 import android.test.ActivityInstrumentationTestCase2;
 
-import com.handstandsam.wiremock.android.MainActivity;
+import com.handstandsam.wiremock.android.DashboardActivity;
 import com.handstandsam.wiremock.android.R;
 
 import org.junit.Before;
@@ -24,12 +24,12 @@ import static org.hamcrest.Matchers.containsString;
 
 
 @RunWith(AndroidJUnit4.class)
-public class RealServerTest extends ActivityInstrumentationTestCase2<MainActivity> {
+public class RealServerTest extends ActivityInstrumentationTestCase2<DashboardActivity> {
 
     Logger logger = LoggerFactory.getLogger(RealServerTest.class);
 
     public RealServerTest() {
-        super(MainActivity.class);
+        super(DashboardActivity.class);
     }
 
     @Before

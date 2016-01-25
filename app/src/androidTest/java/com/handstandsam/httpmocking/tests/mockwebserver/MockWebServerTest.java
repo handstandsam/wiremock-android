@@ -7,7 +7,7 @@ import android.test.ActivityInstrumentationTestCase2;
 
 import com.handstandsam.httpmocking.util.AssetReaderUtil;
 import com.handstandsam.wiremock.android.BuildConfig;
-import com.handstandsam.wiremock.android.MainActivity;
+import com.handstandsam.wiremock.android.DashboardActivity;
 import com.handstandsam.wiremock.android.R;
 import com.handstandsam.wiremock.android.service.WeatherServiceManager;
 import com.squareup.okhttp.mockwebserver.MockResponse;
@@ -30,14 +30,14 @@ import static org.hamcrest.Matchers.containsString;
 
 
 @RunWith(AndroidJUnit4.class)
-public class MockWebServerTest extends ActivityInstrumentationTestCase2<MainActivity> {
+public class MockWebServerTest extends ActivityInstrumentationTestCase2<DashboardActivity> {
 
     Logger logger = LoggerFactory.getLogger(MockWebServerTest.class);
 
     final MockWebServer mMockWebServer = new MockWebServer();
 
     public MockWebServerTest() {
-        super(MainActivity.class);
+        super(DashboardActivity.class);
     }
 
     @Before

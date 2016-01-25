@@ -1,6 +1,6 @@
 package com.handstandsam.wiremock.android.dagger.components;
 
-import com.handstandsam.wiremock.android.MainActivity;
+import com.handstandsam.wiremock.android.DashboardFragment;
 import com.handstandsam.wiremock.android.WireMockServerBackgroundService;
 import com.handstandsam.wiremock.android.dagger.modules.AppModule;
 import com.handstandsam.wiremock.android.dagger.modules.WireMockModule;
@@ -13,7 +13,7 @@ import dagger.Component;
 @Component(modules = {AppModule.class, WireMockModule.class})
 public interface WireMockComponent {
 
-    void inject(MainActivity activity);
+    void inject(DashboardFragment activity);
 
     void inject(WireMockServerBackgroundService wireMockServerBackgroundService);
 }

@@ -7,7 +7,7 @@ import android.test.ActivityInstrumentationTestCase2;
 
 import com.github.tomakehurst.wiremock.junit.WireMockRule;
 import com.handstandsam.wiremock.android.BuildConfig;
-import com.handstandsam.wiremock.android.MainActivity;
+import com.handstandsam.wiremock.android.DashboardActivity;
 import com.handstandsam.wiremock.android.R;
 import com.handstandsam.wiremock.android.service.WeatherServiceManager;
 
@@ -33,14 +33,14 @@ import static com.handstandsam.httpmocking.util.AssetReaderUtil.asset;
 import static org.hamcrest.Matchers.containsString;
 
 @RunWith(AndroidJUnit4.class)
-public class WireMockActivityInstrumentationTestCase2 extends ActivityInstrumentationTestCase2<MainActivity> {
+public class WireMockActivityInstrumentationTestCase2 extends ActivityInstrumentationTestCase2<DashboardActivity> {
 
     Logger logger = LoggerFactory.getLogger(WireMockActivityInstrumentationTestCase2.class);
 
-    private MainActivity activity;
+    private DashboardActivity activity;
 
     public WireMockActivityInstrumentationTestCase2() {
-        super(MainActivity.class);
+        super(DashboardActivity.class);
     }
 
     @Rule
